@@ -1,8 +1,8 @@
 ####################################################################################################
 #### WHITELISTS ####################################################################################
-#### Released: 21.07.2023 at 10:28
+#### Released: 21.07.2023 at 10:32
 ####
-#### Count: 136 Domains von 51 Anbietern.
+#### Count: 142 Domains von 53 Anbietern.
 ####
 #### GitHub: https://github.com/ErikSlevin
 #### Repository: https://github.com/ErikSlevin/docker/tree/main/pi-hole/
@@ -13,6 +13,7 @@
 #### 1DRV
 1drv.com
 1drv.ms
+am.files.1drv.com
 
 #### AKAMAIHD
 akamaihd.net
@@ -116,6 +117,9 @@ connectivitycheck.gstatic.com
 fonts.gstatic.com
 gstatic.com
 
+#### IDEALO
+idealo.de
+
 #### JQUERY
 jquery.com
 
@@ -123,6 +127,7 @@ jquery.com
 kraken.com
 
 #### LIVE
+ams02pap001.storage.live.com
 docs.live.net
 g.live.com
 live.com
@@ -178,6 +183,7 @@ api.onedrive.com
 onedrive.com
 
 #### PHNCDN
+cdn1-smallimg.phncdn.com
 cdn1d-static-shared.phncdn.com
 di.phncdn.com
 
@@ -189,6 +195,7 @@ pooltool.io
 
 #### PORNHUB
 de.pornhub.com
+hubt.pornhub.com
 pornhub.com
 
 #### S-MICROSOFT
@@ -210,6 +217,9 @@ spotify.com
 
 #### SPOTIFYCDN
 spotifycdn.net
+
+#### STRATO
+dyndns.strato.com
 
 #### UI
 ping.ui.com

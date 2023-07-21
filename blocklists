@@ -1,8 +1,8 @@
 ####################################################################################################
 #### BLOCKLISTS ####################################################################################
-#### Released: 21.07.2023 at 10:28
+#### Released: 21.07.2023 at 10:32
 ####
-#### Count: 26.449.100 Domains (14.266.200 unique) in 99 Adlists in 13 Categories.
+#### Count: 11.934.747 Domains (14.266.200 unique) in 105 Adlists in 13 Categories.
 ####
 #### GitHub: https://github.com/ErikSlevin
 #### Repository: https://github.com/ErikSlevin/docker/tree/main/pi-hole/
@@ -21,6 +21,14 @@ https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Fake-Scien
 https://raw.githubusercontent.com/autinerd/anti-axelspringer-hosts/master/axelspringer-hosts
 https://v.firebog.net/hosts/static/w3kbl.txt
 https://raw.githubusercontent.com/ookangzheng/dbl-oisd-nl/master/dbl.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/personal.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.piracy.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.medium.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
 
 
 
@@ -35,10 +43,9 @@ https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/child-protection
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh-vpn-proxy-bypass.txt
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/nosafesearch.txt
 https://blocklistproject.github.io/Lists/gambling.txt
 https://blocklistproject.github.io/Lists/porn.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling.txt
 
 
 
@@ -90,9 +97,9 @@ https://blocklistproject.github.io/Lists/ads.txt
 #### 07 Fakeshops und Abofallen #################################################################### 
 
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/fake.txt
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Streaming
 https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main/Blockliste
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt
 
 
 
@@ -101,7 +108,6 @@ https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main
 https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
 https://raw.github.com/notracking/hosts-blocklists/master/hostnames.txt
 https://www.github.developerdan.com/hosts/lists/tracking-aggressive-extended.txt
-https://raw.githubusercontent.com/AdguardTeam/cname-trackers/master/combined_disguised_trackers_justdomains.txt
 https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
 https://hostfiles.frogeye.fr/multiparty-trackers-hosts.txt
 https://v.firebog.net/hosts/Easyprivacy.txt
