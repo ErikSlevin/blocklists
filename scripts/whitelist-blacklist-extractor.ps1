@@ -2,7 +2,7 @@ $serverName = "Docker-Pi-1"
 $remotePath = "/home/erik/backup/"
 $localPath = "$env:USERPROFILE\Downloads\"
 $extractedPath = "$localPath\extracted\"
-
+$githubVerzeichnis = "$env:USERPROFILE\Documents\GitHub\blocklists\"
 $sourcePath = "$serverName`:$remotePath*pihole-backup.tar.gz"
 $directoryPath = "$localPath"
 
@@ -56,7 +56,7 @@ if ($downloadedFile) {
     $sortedStammdomains = $stammdomains.Keys | Sort-Object
     
     # Pfad zur Ausgabedatei für Whitelists
-    $whitelistOutputFilePath = "$env:USERPROFILE\Documents\GitHub\docker\pi-hole\blocklists\whitelists"
+    $whitelistOutputFilePath = $githubVerzeichnis + "whitelists"
     
     # Inhalt des Whitelist-Headers
     $whitelistHeader = @"
@@ -129,7 +129,7 @@ if ($downloadedFile) {
         $totalInvalidDomains += $invalidDomains
     }
 
-    $outputPath = Join-Path "$env:USERPROFILE\Documents\GitHub\docker\pi-hole\blocklists\" "blocklists"
+    $outputPath = $githubVerzeichnis + "blocklists"
 
     $groupedData = $extractedData | Group-Object -Property Comment
 
@@ -236,4 +236,5 @@ foreach ($group in $commentGroups) {
     $output += "`n"
 }
 
-$output | Out-File -FilePath "C:\Users\erikw\Documents\GitHub\docker\pi-hole\blocklists\README.md" -Encoding UTF8
+$output | Out-File -FilePath (Join-Path -Path $githubVerzeichnis -ChildPath "README.md") -Encoding UTF8
+

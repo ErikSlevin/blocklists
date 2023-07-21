@@ -1,11 +1,11 @@
 # Pihole Blocklisten
-zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
+zuletzt aktualisiert: 21.07.2023 um 10:28 Uhr
 
-26.449.100 Domains (8.638.423 Unique) in 99 AdListen in 13 Kategorien.
+26.449.100 Domains (14.266.200 Unique) in 99 AdListen in 13 Kategorien.
 >*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*
 
 ## 01 Diverse
-> 8 Listen mit 2.887.393 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 8 Listen mit 2.887.393 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -18,7 +18,7 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |484|[https://raw.githubusercontent.com/autinerd/anti-axelspringer-hosts/master/axe...](https://raw.githubusercontent.com/autinerd/anti-axelspringer-hosts/master/axelspringer-hosts)|
 |347|[https://v.firebog.net/hosts/static/w3kbl.txt](https://v.firebog.net/hosts/static/w3kbl.txt)|
 ## 02 Jugendschutz
-> 13 Listen mit 12.125.400 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 13 Listen mit 12.125.400 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -36,7 +36,7 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |0|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh-vpn-...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh-vpn-proxy-bypass.txt)|
 |0|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/nosafese...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/nosafesearch.txt)|
 ## 03 Crypto
-> 3 Listen mit 405.867 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 3 Listen mit 405.867 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -44,7 +44,7 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |98.112|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/crypto](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/crypto)|
 |23.786|[https://blocklistproject.github.io/Lists/crypto.txt](https://blocklistproject.github.io/Lists/crypto.txt)|
 ## 04 Phishing &amp; Domain-Squatting
-> 15 Listen mit 4.993.191 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 15 Listen mit 4.993.191 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -64,7 +64,7 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainS...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting4)|
 |0|[https://github.com/mitchellkrogza/Phishing.Database/blob/master/phishing-doma...](https://github.com/mitchellkrogza/Phishing.Database/blob/master/phishing-domains-NEW-today.txt)|
 ## 06 Werbung
-> 12 Listen mit 1.920.514 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 12 Listen mit 1.920.514 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -81,7 +81,7 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |198|[https://www.technoy.de/lists/blocklist.txt](https://www.technoy.de/lists/blocklist.txt)|
 |9|[https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts)|
 ## 07 Fakeshops und Abofallen
-> 4 Listen mit 133.316 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 4 Listen mit 133.316 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -90,7 +90,7 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |912|[https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/m...](https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main/Blockliste)|
 |0|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/fake.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/fake.txt)|
 ## 08 Tracking und Telemetry
-> 14 Listen mit 1.051.605 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 14 Listen mit 1.051.605 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -109,7 +109,7 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |17|[https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/AmazonFireT...](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/AmazonFireTV.txt)|
 |3|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Offi...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Office-Telemetry)|
 ## 09 Malware
-> 16 Listen mit 2.411.178 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 16 Listen mit 2.411.178 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -130,13 +130,13 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |57|[https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts)|
 |55|[https://www.technoy.de/lists/malware2.txt](https://www.technoy.de/lists/malware2.txt)|
 ## 10 Pi-hole Standardlisten
-> 1 Liste mit 188.935 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 1 Liste mit 188.935 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
 |188.935|[https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)|
 ## 11 Einzelne Dienste
-> 9 Listen mit 23.123 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 9 Listen mit 23.123 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -150,20 +150,20 @@ zuletzt aktualisiert: 08.07.2023 um 00:51 Uhr
 |18|[https://raw.githubusercontent.com/ChefTyler/MiscHostsFiles/master/ChanBlocker...](https://raw.githubusercontent.com/ChefTyler/MiscHostsFiles/master/ChanBlocker.txt)|
 |4|[https://raw.githubusercontent.com/bloodhunterd/pi-hole-blocklists/master/Twit...](https://raw.githubusercontent.com/bloodhunterd/pi-hole-blocklists/master/Twitch.txt)|
 ## 12 Ransomware
-> 2 Listen mit 3.808 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 2 Listen mit 3.808 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
 |1.904|[https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt](https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt)|
 |1.904|[https://blocklistproject.github.io/Lists/ransomware.txt](https://blocklistproject.github.io/Lists/ransomware.txt)|
 ## 13 Betrug
-> 1 Liste mit 196.085 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 1 Liste mit 196.085 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
 |196.085|[https://blocklistproject.github.io/Lists/fraud.txt](https://blocklistproject.github.io/Lists/fraud.txt)|
 ## 14 Weiterleitung
-> 1 Liste mit 108.685 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/main/blocklists)
+> 1 Liste mit 108.685 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
