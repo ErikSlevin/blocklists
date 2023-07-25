@@ -1,8 +1,8 @@
 ####################################################################################################
 #### BLOCKLISTS ####################################################################################
-#### Released: 26.07.2023 at 00:48
+#### Released: 26.07.2023 at 00:52
 ####
-#### 12.360.803 Domains (14.307.293 Unique) in 105 AdListen in 14 Kategorien.
+#### 20.410.896 Domains (14.307.293 Unique) in 105 AdListen in 14 Kategorien.
 ####
 #### GitHub: https://github.com/ErikSlevin
 #### Repository: https://github.com/ErikSlevin/blocklists
@@ -34,7 +34,7 @@ https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt
 
 
 #### DIVERSE #######################################################################################
-#### 3.716.761 Domains ############################################################################# 
+#### 3.780.262 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/multi.txt
@@ -43,14 +43,14 @@ https://raw.githubusercontent.com/elliotwutingfeng/Inversion-DNSBL-Blocklists/ma
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Corona-Blocklist
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.medium.txt
 https://raw.githubusercontent.com/SoftCreatR/fakerando-domains/main/all.txt
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh.txt
-https://v.firebog.net/hosts/static/w3kbl.txt
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.piracy.txt
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Fake-Science
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/personal.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.piracy.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Fake-Science
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh.txt
+https://v.firebog.net/hosts/static/w3kbl.txt
 
 
 
@@ -74,20 +74,20 @@ https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Office-
 
 
 #### JUGENDSCHUTZ ##################################################################################
-#### 705.010 Domains ############################################################################### 
+#### 6.878.329 Domains ############################################################################# 
 
-https://blocklistproject.github.io/Lists/porn.txt
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
-https://blocklistproject.github.io/Lists/gambling.txt
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/child-protection
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock3
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock4
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock5
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling.txt
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock1
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock2
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling
+https://blocklistproject.github.io/Lists/porn.txt
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/child-protection
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling.txt
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock4
+https://blocklistproject.github.io/Lists/gambling.txt
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock5
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6
 
 
 
@@ -141,24 +141,24 @@ https://raw.githubusercontent.com/namePlayer/dhl-scamlist/main/dns-blocklists/pi
 
 
 #### DOMAIN-SQUATTING ##############################################################################
-#### 0 Domains ##################################################################################### 
+#### 1.730.515 Domains ############################################################################# 
 
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting1
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting2
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting/DE/Sparkasse/Brandenburg
+https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting/DE/Sparkasse/Berlin
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting4
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting3
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting/DE/Sparkasse/Berlin
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting1
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting/DE/Sparkasse/Brandenburg
-https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting2
 
 
 
 #### FAKESHOPS UND ABOFALLEN #######################################################################
-#### 912 Domains ################################################################################### 
+#### 83.670 Domains ################################################################################ 
 
-https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main/Blockliste
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Streaming
+https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main/Blockliste
 
 
 
