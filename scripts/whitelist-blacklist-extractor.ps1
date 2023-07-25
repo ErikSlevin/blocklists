@@ -1,16 +1,17 @@
+# SSH Verbindung
 $serverName = "Docker-Pi-1"
 $remotePath = "/home/erik/backup/"
-$localPath = "$env:USERPROFILE\Downloads\"
+$sourcePath = "$serverName`:$remotePath\{*pihole-backup.tar.gz,*.json}"
+
+# Entpackungsverzeichnis
+$localPath = "$env:USERPROFILE\Downloads"
 $extractedPath = "$localPath\extracted\"
-$githubVerzeichnis = "$env:USERPROFILE\Documents\GitHub\blocklists\"
-$sourcePath = "$serverName`:$remotePath*pihole-backup.tar.gz"
-$directoryPath = "$localPath"
 
 # Herunterladen der Datei mit SCP
-scp $sourcePath $directoryPath
+scp $sourcePath $localPath 
 
 # Suchen der heruntergeladenen Datei mit Wildcard
-$downloadedFile = Get-ChildItem -Path $directoryPath -Filter "*pihole-backup.tar.gz" | Select-Object -First 1
+$downloadedFile = Get-ChildItem -Path $localPath -Filter "*pihole-backup.tar.gz" | Select-Object -First 1
 
 if ($downloadedFile) {
     # Erstellen des Extraktionsverzeichnisses, falls es nicht existiert
@@ -18,223 +19,126 @@ if ($downloadedFile) {
         New-Item -ItemType Directory -Path $extractedPath | Out-Null
     }
 
-    # Extrahieren der heruntergeladenen Datei
-    Write-Host "Entpacken der heruntergeladenen Datei..."
-    tar -xzf $downloadedFile.FullName -C $extractedPath whitelist.exact.json adlist.json
+    # Extrahieren der heruntergeladenen Datei und verschieben der json-Datei
+    Write-Host -NoNewline -ForegroundColor DarkGreen "Entpacken der heruntergeladenen Datei... "
+    try {
+        tar -xzf $downloadedFile.FullName -C $extractedPath adlist.json whitelist.exact.json
+        Move-Item $localPath\uniqueDomains.json $extractedPath -Force
+        Write-Host "OK"
+    } catch {
+        # Fehlerbehandlung, falls ein Fehler auftritt
+        Write-Host $_.Exception.Message
+    }
 
     # Löschen der ursprünglichen Datei
-    Write-Host "Löschen der ursprünglichen Datei..."
-    Remove-Item -Path $downloadedFile.FullName -Force
-
-    # Pfad zur extrahierten whitelist.exact.json
-    $extractedFilePath = Join-Path -Path $extractedPath -ChildPath "whitelist.exact.json"
-
-    # Lade den Inhalt der JSON-Datei
-    $jsonContent = Get-Content -Path $extractedFilePath -Raw | ConvertFrom-Json
-
-    # Extrahiere die Domains aus der JSON
-    $domains = $jsonContent | Select-Object -ExpandProperty domain
-    $domains = $domains -replace "^www\."
-
-    $stammdomains = @{}
-
-    foreach ($domain in $domains | Select-Object -Unique) {
-        $parts = $domain -split "\."
-        
-        if ($parts.Count -ge 2) {
-            $stammdomain = $parts[-2]
-            
-            if ($stammdomains.ContainsKey($stammdomain)) {
-                $stammdomains[$stammdomain] += @($domain)
-            }
-            else {
-                $stammdomains[$stammdomain] = @($domain)
-            }
-        }
-    }
-    
-    $sortedStammdomains = $stammdomains.Keys | Sort-Object
-    
-    # Pfad zur Ausgabedatei für Whitelists
-    $whitelistOutputFilePath = $githubVerzeichnis + "whitelists"
-    
-    # Inhalt des Whitelist-Headers
-    $whitelistHeader = @"
-####################################################################################################
-#### WHITELISTS ####################################################################################
-#### Released: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")
-####
-#### Count: $($domains.Count) Domains von $($sortedStammdomains.Count) Anbietern.
-####
-#### GitHub: https://github.com/ErikSlevin
-#### Repository: https://github.com/ErikSlevin/docker/tree/main/pi-hole/
-####
-#### Copyright Erik Slevin #########################################################################
-####################################################################################################
-
-"@
-
-    # Entferne die Einrückung am Anfang jeder Zeile
-    $whitelistHeader = $whitelistHeader -replace "(?m)^\s+", ""
-    
-    # Schreibe den Whitelist-Header in die Ausgabedatei (überschreibe vorhandene Datei)
-    $whitelistHeader | Set-Content -Path $whitelistOutputFilePath
-    
-    # Schreibe die gruppierten Domains in die Ausgabedatei (anfügen)
-    foreach ($stammdomain in $sortedStammdomains) {
-        # Schreibe die Stammdomain in Großbuchstaben
-        "#### $($stammdomain.ToUpper())" | Add-Content -Path $whitelistOutputFilePath
-        
-        $subdomains = $stammdomains[$stammdomain] | Sort-Object
-        
-        # Schreibe die Unterdomänen
-        foreach ($subdomain in $subdomains) {
-            $subdomain | Add-Content -Path $whitelistOutputFilePath
-        }
-        
-        # Füge eine leere Zeile hinzu
-        Add-Content -Path $whitelistOutputFilePath ""
+    Write-Host -NoNewline -ForegroundColor DarkGreen "Löschen der ursprünglichen Datei... "
+    try {
+        Remove-Item -Path $downloadedFile.FullName -Force
+        Write-Host "OK"
+    } catch {
+        # Fehlerbehandlung, falls ein Fehler auftritt
+        Write-Host $_.Exception.Message
     }
 
-    # SSH-Verbindung zum Pi-hole-Server herstellen
-    Write-Host "Verbindung zum Pi-hole-Server herstellen..."
-    ssh $serverName -t "docker exec -it pihole /bin/bash -c 'pihole -c -j'" | Out-File -FilePath "$localPath\pihole_stats.json"
+    # Jsonfile einlesen
+    $jsonAdlist  = Get-Content -Path $extractedPath\adlist.json -Raw | ConvertFrom-Json
 
-    # Lade den Inhalt der Pi-hole-Statistik-JSON
-    $piholeStats = Get-Content -Path "$localPath\pihole_stats.json" | ConvertFrom-Json
+    # Listen erfassen, die 0 Domains haben und mit Invoke-WebRequest Domains zählen
+    $zeroDomains = $jsonAdlist | Where-Object {$_.number -eq 0} | Select-Object -Property id,address
 
-    # Extrahiere die Anzahl der blockierten Domains
-    $totalBlockedDomains = $piholeStats.domains_being_blocked
+    # Aktuelle Liste 
+    $step = 1
 
-    $jsonData = Get-Content -Raw -Path "$env:USERPROFILE\Downloads\extracted\adlist.json" | ConvertFrom-Json
+    Write-Host -ForegroundColor DarkGreen "Fehlerhafte AdLists: Domains nachträglich zählen... "
 
-    $extractedData = @()
-    $totalNumber = 0
-    $totalInvalidDomains = 0
+    foreach ($list in $zeroDomains) {
+        # Content Einlesen
+        $fileContent = Invoke-WebRequest -Uri $list.address | Select-Object -ExpandProperty Content
 
-    foreach ($item in $jsonData) {
-        $address = $item.address -replace '\\', ''
-        $comment = $item.comment
-        $number = $item.number
-        $invalidDomains = $item.invalid_domains
+        # Domains zählen
+        $countDomains = ($fileContent -split '\r?\n' | Where-Object { $_ -match '^\s*(?!#|$)' }).Count
 
-        $extractedData += [PSCustomObject]@{
-            Address = $address
-            Comment = $comment
-            Number = $number
-            InvalidDomains = $invalidDomains
-        }
+        # json PS-Objekt manipulieren 
+        $targetObject = $jsonAdlist | Where-Object { $_.ID -eq $list.id}
 
-        $totalNumber += $number
-        $totalInvalidDomains += $invalidDomains
-    }
-
-    $outputPath = $githubVerzeichnis + "blocklists"
-
-    $groupedData = $extractedData | Group-Object -Property Comment
-
-    $groupedWeb = $extractedData | Sort-Object Comment, Address -Descending
-
-
-
-
-    #$separator = "#" * 100
-    $lineBreaks = "`n"
-
-    $blocklistHeader = @"
-####################################################################################################
-#### BLOCKLISTS ####################################################################################
-#### Released: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")
-####
-#### Count: $($totalNumber.ToString("#,###")) Domains ($($totalBlockedDomains.ToString("#,###")) unique) in $($jsonData.Count) Adlists in $($groupedData.Count) Categories.
-####
-#### GitHub: https://github.com/ErikSlevin
-#### Repository: https://github.com/ErikSlevin/docker/tree/main/pi-hole/
-####
-#### Copyright Erik Slevin #########################################################################
-####################################################################################################
-"@
-
-    # Lösche die Ausgabedatei, wenn sie bereits vorhanden ist
-    if (Test-Path $outputPath) {
-        Remove-Item $outputPath -Force
-    }
-
-    $blocklistHeader | Out-File -FilePath $outputPath -Encoding UTF8 -Append
-
-    foreach ($group in $groupedData) {
-        $comment = $group.Name.Replace("&amp; ", "& ")
-        $commentLength = $comment.Length
-        $paddingLength = 100 - $commentLength - 6
-        $padding = "#" * $paddingLength
-
-        $output = "$lineBreaks`n#### $comment $padding `n$lineBreaks"
-
-        foreach ($address in $group.Group) {
-            $output += "$($address.Address)`n"
-        }
-
-        $output | Out-File -FilePath $outputPath -Encoding UTF8 -Append
-    }
-} else {
-    Write-Host "Keine Datei mit dem Muster '*pihole-backup.tar.gz' gefunden."
-}
-
-$lastUpdated = Get-Date -Format "dd.MM.yyyy 'um' HH:mm 'Uhr'"
-$totalDomains = ($extractedData | Measure-Object -Property Number -Sum).Sum
-$totalLists = $extractedData.Count
-
-# Generiere die Übersicht
-$output = "# Pihole Blocklisten"
-$output += "`n"
-$output += "zuletzt aktualisiert: $lastUpdated"
-$output += "`n"
-$output += "`n"
-$output += "$($totalNumber.ToString("#,###")) Domains ($($totalBlockedDomains.ToString("#,###")) Unique) in $($jsonData.Count) AdListen in $($groupedData.Count) Kategorien."
-$output += "`n"
-$output += ">*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*"
-$output += "`n"
-$output += "`n"
-
-$commentGroups = $extractedData | Group-Object -Property Comment
-
-foreach ($group in $commentGroups) {
-    $comment = $group.Name
-    $lists = $group.Group | Sort-Object -Property Number -Descending
-    $groupDomains = ($lists | Measure-Object -Property Number -Sum).Sum
-
-    $output += "## $comment"
-    $output += "`n"
-    $output += "> $($lists.Count) $(If ($lists.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit {0:N0} Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/docker/main/pi-hole/blocklists/blocklists)" -f $groupDomains
-    $output += "`n"
-    $output += "`n"
-
-    $output += "|Domains|Adresse|"
-    $output += "`n"
-    $output += "|--:|:--|"
-
-    foreach ($list in $lists) {
-        $address = $list.Address
-        $number = $list.Number
-
-        # Kürze die Adresse auf maximal 80 Zeichen
-        if ($address.Length -gt 80) {
-            $beschreibung = $address.Substring(0, 77) + "..."
+        # Überprüfe, ob das Objekt gefunden wurde
+        if ($targetObject) {
+            $targetObject.Number = $countDomains
+            Write-Host ("{0:D2}" -f$step + "/" + $zeroDomains.Count)  "AdList aktualisiert: $($targetObject.Number) Domains"
         } else {
-            $beschreibung = $address
+            Write-Host "ID $($list.id) wurde nicht im JSON-Objekt gefunden."
         }
 
-        # Formatieren der Nummer mit tausend Trennzeichen
-        $formattedNumber = "{0:N0}" -f $number
-
-        # Entferne eventuelle Zeilenumbrüche aus der Adresse
-        $address = $address -replace "`r`n", ""
-
-        $output += "`n|$formattedNumber|[$beschreibung]($address)|"
+        $step++
     }
 
-    $output += "`n"
+    # Initialisiere eine Variable zur Speicherung der Gesamtsumme der gesamten Anzahl der Domains (inkl. Redundanz)
+    $domainsTotal = 0
+
+    # Iteriere durch jedes JSON-Element und summiere die "Numbers"
+    $jsonAdlist | ForEach-Object { $domainsTotal += $_.Number }
+
+    # Unique Doamins aus json-File
+    $uniqueDoamins = ((ConvertFrom-Json(Get-Content -Path $extractedPath\uniqueDomains.json -Raw)).domains_being_blocked).ToString("N0")
+
+    # Sortiere das Array nach der Eigenschaft "comment" und dann nach der Anzahl absteigend
+    $sortedAdlists = $jsonAdlist | Sort-Object -Property comment, number -Descending
+
+    # Gruppiere das sortierte Array nach der Eigenschaft "comment" und führe die erste Sortierung durch
+    $groupedAdlists = $sortedAdlists | Group-Object -Property comment | Sort-Object -Property Count -Descending
+
+    $countAdlists = ($groupedAdlists | Measure-Object -Property Count -Sum).Sum
+    $countCategories = $groupedAdlists.Count
+
+    # Blocklist Readme.md erstellen
+     $output = "# Pihole Blocklisten`n"
+    $output += "zuletzt aktualisiert: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")`n`n"
+    $output += "$($domainsTotal.ToString("N0")) Domains ($($uniqueDoamins) Unique) in $($countAdlists) AdListen in $($countCategories) Kategorien.`n"
+    $output += ">*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*"
+
+    # Gib die sortierten Gruppen aus
+    foreach ($group in $groupedAdlists) {
+
+        $sortedGroup = $group.Group | Sort-Object -Property number -Descending
+        $countDomains = ($sortedGroup | Measure-Object -Property number -Sum).Sum.ToString("N0")
+
+        $output += "`n"
+        $output += "## $($group.Name)`n"
+        $output += "> $($group.Group.Count) $(If ($group.Group.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit $($countDomains) Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)`n`n"
+        $output += "|Domains|Adresse|`n"
+        $output += "|--:|:--|"
+        
+        foreach ($adlist in $sortedGroup ) {
+            if ($adlist.address.Length -gt 80) {
+                $beschreibung = $adlist.address.Substring(0, 77) + "..."
+            } else {
+                $beschreibung = $adlist.address
+            }
+
+            $output += "`n|$($adlist.number.ToString("N0"))|[$beschreibung]($($adlist.address))|"
+        }
+
+    }
+    $output | Out-File $env:USERPROFILE\Documents\GitHub\blocklists\README.md -Encoding UTF8
 }
 
-$output | Out-File -FilePath (Join-Path -Path $githubVerzeichnis -ChildPath "README.md") -Encoding UTF8
+#    $title = "BLOCKLISTS INFO"
+#    $headerBlock = @"
+##
+##  $title
+##
+##  Release Date: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")
+##
+##  Total Domains: $($DomainsTotal.ToString("N0")) ($uniqueDoamins Unique) 
+##  Total Adlists: $($jsonAdlist.Count)
+##  Categories: $($groupedAdlists.Count)
+##
+##  GitHub: https://github.com/ErikSlevin
+##  Repository: https://github.com/ErikSlevin/blocklists
+##
+##  Copyright (c) $(Get-Date -Format 'yyyy') Erik Slevin
+##
+#"@
+#Clear-Host
 
+#}
