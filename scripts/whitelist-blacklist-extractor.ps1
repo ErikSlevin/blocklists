@@ -13,6 +13,12 @@ scp $sourcePath $localPath
 # Suchen der heruntergeladenen Datei mit Wildcard
 $downloadedFile = Get-ChildItem -Path $localPath -Filter "*pihole-backup.tar.gz" | Select-Object -First 1
 
+# Schrittzahl initieren
+$step = 1
+
+# Console clearen
+Clear-Host
+
 if ($downloadedFile) {
     # Erstellen des Extraktionsverzeichnisses, falls es nicht existiert
     if (-not (Test-Path -Path $extractedPath)) {
@@ -20,21 +26,25 @@ if ($downloadedFile) {
     }
 
     # Extrahieren der heruntergeladenen Datei und verschieben der json-Datei
-    Write-Host -NoNewline -ForegroundColor DarkGreen "Entpacken der heruntergeladenen Datei... "
     try {
+        Write-Host -NoNewline "Schritt $($step): "
+        Write-Host -NoNewline -ForegroundColor DarkGreen "Entpacken der heruntergeladenen Datei... "
         tar -xzf $downloadedFile.FullName -C $extractedPath adlist.json whitelist.exact.json
         Move-Item $localPath\uniqueDomains.json $extractedPath -Force
         Write-Host "OK"
+        $step++
     } catch {
         # Fehlerbehandlung, falls ein Fehler auftritt
         Write-Host $_.Exception.Message
     }
 
     # Löschen der ursprünglichen Datei
-    Write-Host -NoNewline -ForegroundColor DarkGreen "Löschen der ursprünglichen Datei... "
     try {
+        Write-Host -NoNewline "Schritt $($step): "
+        Write-Host -NoNewline -ForegroundColor DarkGreen "Löschen der ursprünglichen Datei... "
         Remove-Item -Path $downloadedFile.FullName -Force
         Write-Host "OK"
+        $step++
     } catch {
         # Fehlerbehandlung, falls ein Fehler auftritt
         Write-Host $_.Exception.Message
@@ -47,29 +57,51 @@ if ($downloadedFile) {
     $zeroDomains = $jsonAdlist | Where-Object {$_.number -eq 0} | Select-Object -Property id,address
 
     # Aktuelle Liste 
-    $step = 1
+    $listnumber = 1
 
-    Write-Host -ForegroundColor DarkGreen "Fehlerhafte AdLists: Domains nachträglich zählen... "
+    try {
+        Write-Host -NoNewline "Schritt $($step): "
+        Write-Host -NoNewline -ForegroundColor DarkGreen "Fehlerhafte AdLists: Domains nachträglich zählen "
 
-    foreach ($list in $zeroDomains) {
-        # Content Einlesen
-        $fileContent = Invoke-WebRequest -Uri $list.address | Select-Object -ExpandProperty Content
+        # Initialisiere den Fortschritt
+        $listnumber = 0
+        $totalLists = $zeroDomains.Count
+        Write-Host -NoNewline "0%"
 
-        # Domains zählen
-        $countDomains = ($fileContent -split '\r?\n' | Where-Object { $_ -match '^\s*(?!#|$)' }).Count
+        foreach ($list in $zeroDomains) {
+            # Content Einlesen
+            $fileContent = Invoke-WebRequest -Uri $list.address | Select-Object -ExpandProperty Content
 
-        # json PS-Objekt manipulieren 
-        $targetObject = $jsonAdlist | Where-Object { $_.ID -eq $list.id}
+            # Domains zählen
+            $countDomains = ($fileContent -split '\r?\n' | Where-Object { $_ -match '^\s*(?!#|$)' }).Count
 
-        # Überprüfe, ob das Objekt gefunden wurde
-        if ($targetObject) {
-            $targetObject.Number = $countDomains
-            Write-Host ("{0:D2}" -f$step + "/" + $zeroDomains.Count)  "AdList aktualisiert: $($targetObject.Number) Domains"
-        } else {
-            Write-Host "ID $($list.id) wurde nicht im JSON-Objekt gefunden."
+            # json PS-Objekt manipulieren 
+            $targetObject = $jsonAdlist | Where-Object { $_.ID -eq $list.id}
+
+            # Überprüfe, ob das Objekt gefunden wurde
+            if ($targetObject) {
+                $targetObject.Number = $countDomains
+                # Write-Host ("{0:D2}" -f$$listnumber + "/" + $zeroDomains.Count)  "AdList aktualisiert: $($targetObject.Number) Domains"
+            } else {
+                Write-Host "ID $($list.id) wurde nicht im JSON-Objekt gefunden."
+            }
+
+            # Durchgelaufende Liste erhöhen
+            $listnumber++
+
+            # Fortschritt anzeigen für 0/20/40/60/80/100%
+            if ($listnumber % ($totalLists / 5) -eq 0) {
+                $progress = ($listnumber / $totalLists) * 100
+                Write-Host -NoNewline "$progress%"
+            } else {
+                Write-Host -NoNewline "."
+            }
         }
-
         $step++
+        Write-Host "  OK"
+    } catch {
+        # Fehlerbehandlung, falls ein Fehler auftritt
+        Write-Host $_.Exception.Message
     }
 
     # Initialisiere eine Variable zur Speicherung der Gesamtsumme der gesamten Anzahl der Domains (inkl. Redundanz)
@@ -87,58 +119,127 @@ if ($downloadedFile) {
     # Gruppiere das sortierte Array nach der Eigenschaft "comment" und führe die erste Sortierung durch
     $groupedAdlists = $sortedAdlists | Group-Object -Property comment | Sort-Object -Property Count -Descending
 
+    # Wieviele AdListen insgesamt
     $countAdlists = ($groupedAdlists | Measure-Object -Property Count -Sum).Sum
+
+    # Wieviele Kategorien insgesamt
     $countCategories = $groupedAdlists.Count
 
     # Blocklist Readme.md erstellen
-     $output = "# Pihole Blocklisten`n"
-    $output += "zuletzt aktualisiert: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")`n`n"
-    $output += "$($domainsTotal.ToString("N0")) Domains ($($uniqueDoamins) Unique) in $($countAdlists) AdListen in $($countCategories) Kategorien.`n"
-    $output += ">*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*"
+    $outputREADME = "# Pihole Blocklisten`n"
+    $outputREADME += "zuletzt aktualisiert: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")`n`n"
+    $outputREADME += "$($domainsTotal.ToString("N0")) Domains ($($uniqueDoamins) Unique) in $($countAdlists) AdListen in $($countCategories) Kategorien.`n"
+    $outputREADME += ">*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*"
+
+    # Blocklistfile HEADER
+    $outputBLOCKLISTS =  "####################################################################################################`n"
+    $outputBLOCKLISTS += "#### BLOCKLISTS ####################################################################################`n"
+    $outputBLOCKLISTS += "#### Released: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")`n"
+    $outputBLOCKLISTS += "####`n"
+    $outputBLOCKLISTS += "#### $($domainsTotal.ToString("N0")) Domains ($($uniqueDoamins) Unique) in $($countAdlists) AdListen in $($countCategories) Kategorien.`n"
+    $outputBLOCKLISTS += "####`n"
+    $outputBLOCKLISTS += "#### GitHub: https://github.com/ErikSlevin`n"
+    $outputBLOCKLISTS += "#### Repository: https://github.com/ErikSlevin/blocklists`n"
+    $outputBLOCKLISTS += "####`n"
+    $outputBLOCKLISTS += "#### Copyright Erik Slevin #########################################################################`n"
+    $outputBLOCKLISTS += "####################################################################################################"
 
     # Gib die sortierten Gruppen aus
     foreach ($group in $groupedAdlists) {
 
+        # Liste nach Domains absteigend sortieren
         $sortedGroup = $group.Group | Sort-Object -Property number -Descending
+
+        # Anzahl der Domains in der Liste
         $countDomains = ($sortedGroup | Measure-Object -Property number -Sum).Sum.ToString("N0")
 
-        $output += "`n"
-        $output += "## $($group.Name)`n"
-        $output += "> $($group.Group.Count) $(If ($group.Group.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit $($countDomains) Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)`n`n"
-        $output += "|Domains|Adresse|`n"
-        $output += "|--:|:--|"
+        # Blocklist Readme.md ergänzen // Hier Kategorieweise!
+        $outputREADME += "`n"
+        $outputREADME += "## $($group.Name)`n"
+        $outputREADME += "> $($group.Group.Count) $(If ($group.Group.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit $($countDomains) Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)`n`n"
+        $outputREADME += "|Domains|Adresse|`n"
+        $outputREADME += "|--:|:--|"
         
-        foreach ($adlist in $sortedGroup ) {
-            if ($adlist.address.Length -gt 80) {
-                $beschreibung = $adlist.address.Substring(0, 77) + "..."
-            } else {
-                $beschreibung = $adlist.address
-            }
+        # Ueberschriften für die Blocklists (einheitliche Breite)
+        $headline1 = "$($group.Name.Replace("&amp; ", "& ").ToUpper())"
+        $paddingLength1 = 100 - $headline1.Length - 6
+        $padding1 = "#" * $paddingLength1
 
-            $output += "`n|$($adlist.number.ToString("N0"))|[$beschreibung]($($adlist.address))|"
+        # Ueberschriften für die Blocklists (einheitliche Breite)
+        $headline2 = "$($countDomains) Domains"
+        $paddingLength2 = 100 - $headline2.Length - 6
+        $padding2 = "#" * $paddingLength2
+        
+
+        # Gruppenueberschrift fuer die Blocklists hinzufügen
+        $outputBLOCKLISTS +=  "`n`n`n#### $headline1 $padding1`n"
+        $outputBLOCKLISTS +=  "#### $headline2 $padding2 `n`n"
+        # Blocklist Readme.md ergänzen // Hier je URL!
+        foreach ($adlist in $sortedGroup ) {
+
+            # URL kürzen wenn nötig
+            $beschreibung = ($adlist.address.Length -gt 80) ? ($adlist.address.Substring(0, 77) + "...") : $adlist.address
+
+            # URLs für die README.md hinzufuegen
+            $outputREADME += "`n|$($adlist.number.ToString("N0"))|[$beschreibung]($($adlist.address))|"
+
+            # URLS für die Blocklists hinzufuegen
+            $outputBLOCKLISTS += "$($adlist.address)`n"
         }
 
     }
-    $output | Out-File $env:USERPROFILE\Documents\GitHub\blocklists\README.md -Encoding UTF8
+
+    # README.md File schreiben
+    Write-Host -NoNewline "Schritt $($step): "
+    Write-Host -NoNewline -ForegroundColor DarkGreen "README.md File schreiben... "
+    $outputREADME | Out-File $env:USERPROFILE\Documents\GitHub\blocklists\README.md -Encoding UTF8
+    Write-Host "OK"
+    $step++
+
+    # Blocklists schreiben
+    Write-Host -NoNewline "Schritt $($step): "
+    Write-Host -NoNewline -ForegroundColor DarkGreen "Blocklists File schreiben... "
+    $outputBLOCKLISTS | Out-File $env:USERPROFILE\Documents\GitHub\blocklists\blocklists -Encoding UTF8
+    Write-Host "OK"
+    $step++
+
+    # GitHub aktualisieren
+    try {
+        Write-Host -NoNewline "Schritt $($step): "
+        Write-Host -NoNewline -ForegroundColor DarkGreen "GitHub aktualieren... "
+
+        # Git initialisieren
+        Set-Location $env:USERPROFILE\Documents\GitHub\blocklists\
+        git init >$null 2>&1
+
+        # Änderungen hinzufügen
+        git add README.md blocklists >$null 2>&1
+
+        # Commit durchführen
+        git commit -m "Update blocklists and README.md" >$null 2>&1
+
+        # Änderungen pushen
+        git push origin main >$null 2>&1
+
+        Write-Host "OK"
+        $step++
+    } catch {
+        # Fehlerbehandlung, falls ein Fehler auftritt
+        Write-Host $_.Exception.Message
+    }
+
+    # Löschen des Entpackungsverzeichnisses
+    Write-Host -NoNewline "Schritt $($step): "
+    Write-Host -NoNewline -ForegroundColor DarkGreen "Löschen des Entpackungsverzeichnisses... "
+    try {
+        if (Test-Path -Path $extractedPath) {
+            Remove-Item -Path $extractedPath -Force -Recurse
+            Write-Host "OK"
+        } else {
+            Write-Host "Verzeichnis nicht gefunden."
+        }
+    } catch {
+        # Fehlerbehandlung, falls ein Fehler auftritt
+        Write-Host $_.Exception.Message
+    }
 }
-
-#    $title = "BLOCKLISTS INFO"
-#    $headerBlock = @"
-##
-##  $title
-##
-##  Release Date: $(Get-Date -Format "dd.MM.yyyy 'at' HH:mm")
-##
-##  Total Domains: $($DomainsTotal.ToString("N0")) ($uniqueDoamins Unique) 
-##  Total Adlists: $($jsonAdlist.Count)
-##  Categories: $($groupedAdlists.Count)
-##
-##  GitHub: https://github.com/ErikSlevin
-##  Repository: https://github.com/ErikSlevin/blocklists
-##
-##  Copyright (c) $(Get-Date -Format 'yyyy') Erik Slevin
-##
-#"@
-#Clear-Host
-
-#}
