@@ -1,7 +1,7 @@
 # Pihole Blocklisten
-zuletzt aktualisiert: 24.07.2023 at 23:06
+zuletzt aktualisiert: 25.07.2023 at 22:20
 
-20.402.267 Domains (14.307.293 Unique) in 105 AdListen in 14 Kategorien.
+20.410.974 Domains (14.307.293 Unique) in 105 AdListen in 14 Kategorien.
 >*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*
 ## Malware
 > 16 Listen mit 2.398.216 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)
@@ -25,7 +25,7 @@ zuletzt aktualisiert: 24.07.2023 at 23:06
 |55|[https://www.technoy.de/lists/malware2.txt](https://www.technoy.de/lists/malware2.txt)|
 |22|[https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt](https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt)|
 ## Diverse
-> 15 Listen mit 3.779.949 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)
+> 15 Listen mit 3.780.180 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
@@ -33,14 +33,14 @@ zuletzt aktualisiert: 24.07.2023 at 23:06
 |873.980|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/multi.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/multi.txt)|
 |766.227|[https://raw.githubusercontent.com/ookangzheng/dbl-oisd-nl/master/dbl.txt](https://raw.githubusercontent.com/ookangzheng/dbl-oisd-nl/master/dbl.txt)|
 |515.452|[https://raw.githubusercontent.com/elliotwutingfeng/Inversion-DNSBL-Blocklists...](https://raw.githubusercontent.com/elliotwutingfeng/Inversion-DNSBL-Blocklists/main/Google_hostnames.txt)|
-|248.980|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Corona-...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Corona-Blocklist)|
+|249.088|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Corona-...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Corona-Blocklist)|
 |160.612|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.medi...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.medium.txt)|
 |57.579|[https://raw.githubusercontent.com/SoftCreatR/fakerando-domains/main/all.txt](https://raw.githubusercontent.com/SoftCreatR/fakerando-domains/main/all.txt)|
-|46.147|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/personal...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/personal.txt)|
-|6.709|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.pir...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.piracy.txt)|
-|5.610|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt)|
-|2.045|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt)|
-|1.544|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt)|
+|46.370|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/personal...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/personal.txt)|
+|6.685|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.pir...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.piracy.txt)|
+|5.549|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt)|
+|2.034|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt)|
+|1.540|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt)|
 |1.241|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Fake-Sc...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Fake-Science)|
 |867|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh.txt)|
 |347|[https://v.firebog.net/hosts/static/w3kbl.txt](https://v.firebog.net/hosts/static/w3kbl.txt)|
@@ -63,19 +63,19 @@ zuletzt aktualisiert: 24.07.2023 at 23:06
 |4|[https://raw.githubusercontent.com/bloodhunterd/pi-hole-blocklists/master/Twit...](https://raw.githubusercontent.com/bloodhunterd/pi-hole-blocklists/master/Twitch.txt)|
 |3|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Offi...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Office-Telemetry)|
 ## Jugendschutz
-> 12 Listen mit 6.870.017 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)
+> 12 Listen mit 6.878.465 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
 |1.700.000|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock3](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock3)|
 |1.700.000|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock1](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock1)|
 |1.700.000|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock2](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock2)|
-|510.285|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling)|
+|516.347|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling)|
 |500.245|[https://blocklistproject.github.io/Lists/porn.txt](https://blocklistproject.github.io/Lists/porn.txt)|
 |243.340|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/child-p...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/child-protection)|
 |202.266|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies)|
-|170.526|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling.txt)|
-|140.856|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock4](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock4)|
+|170.533|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling...](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling.txt)|
+|143.235|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock4](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock4)|
 |2.499|[https://blocklistproject.github.io/Lists/gambling.txt](https://blocklistproject.github.io/Lists/gambling.txt)|
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock5](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock5)|
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6)|
@@ -137,12 +137,12 @@ zuletzt aktualisiert: 24.07.2023 at 23:06
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainS...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting4)|
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainS...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting3)|
 ## Fakeshops und Abofallen
-> 4 Listen mit 83.666 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)
+> 4 Listen mit 83.694 Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)
 
 |Domains|Adresse|
 |--:|:--|
-|64.668|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious)|
-|15.617|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt)|
+|64.714|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious)|
+|15.599|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt)|
 |2.469|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Streaming](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Streaming)|
 |912|[https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/m...](https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main/Blockliste)|
 ## Crypto
