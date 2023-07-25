@@ -1,6 +1,6 @@
 ####################################################################################################
 #### BLOCKLISTS ####################################################################################
-#### Released: 25.07.2023 at 23:53
+#### Released: 26.07.2023 at 00:39
 ####
 #### 20.410.788 Domains (14.307.293 Unique) in 105 AdListen in 14 Kategorien.
 ####
@@ -11,7 +11,7 @@
 ####################################################################################################
 
 
-#### Malware #######################################################################################
+#### MALWARE #######################################################################################
 #### 2.398.216 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.txt
@@ -33,7 +33,7 @@ https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt
 
 
 
-#### Diverse #######################################################################################
+#### DIVERSE #######################################################################################
 #### 3.780.154 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
@@ -54,7 +54,7 @@ https://v.firebog.net/hosts/static/w3kbl.txt
 
 
 
-#### Einzelne Dienste ##############################################################################
+#### EINZELNE DIENSTE ##############################################################################
 #### 23.510 Domains ################################################################################ 
 
 https://www.github.developerdan.com/hosts/lists/dating-services-extended.txt
@@ -73,7 +73,7 @@ https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Office-
 
 
 
-#### Jugendschutz ##################################################################################
+#### JUGENDSCHUTZ ##################################################################################
 #### 6.878.329 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock3
@@ -91,7 +91,7 @@ https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6
 
 
 
-#### Werbung #######################################################################################
+#### WERBUNG #######################################################################################
 #### 1.682.736 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails
@@ -109,7 +109,7 @@ https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
 
 
 
-#### Tracking und Telemetry ########################################################################
+#### TRACKING UND TELEMETRY ########################################################################
 #### 1.188.228 Domains ############################################################################# 
 
 https://raw.github.com/notracking/hosts-blocklists/master/hostnames.txt
@@ -125,7 +125,7 @@ https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
 
 
 
-#### Phishing ######################################################################################
+#### PHISHING ######################################################################################
 #### 1.724.370 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe
@@ -140,7 +140,7 @@ https://raw.githubusercontent.com/namePlayer/dhl-scamlist/main/dns-blocklists/pi
 
 
 
-#### Domain-Squatting ##############################################################################
+#### DOMAIN-SQUATTING ##############################################################################
 #### 1.730.515 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting1
@@ -152,7 +152,7 @@ https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSqua
 
 
 
-#### Fakeshops und Abofallen #######################################################################
+#### FAKESHOPS UND ABOFALLEN #######################################################################
 #### 83.670 Domains ################################################################################ 
 
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious
@@ -162,7 +162,7 @@ https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main
 
 
 
-#### Crypto ########################################################################################
+#### CRYPTO ########################################################################################
 #### 410.097 Domains ############################################################################### 
 
 https://zerodot1.gitlab.io/CoinBlockerLists/hosts
@@ -171,7 +171,7 @@ https://blocklistproject.github.io/Lists/crypto.txt
 
 
 
-#### Ransomware ####################################################################################
+#### RANSOMWARE ####################################################################################
 #### 3.808 Domains ################################################################################# 
 
 https://blocklistproject.github.io/Lists/ransomware.txt
@@ -179,21 +179,21 @@ https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt
 
 
 
-#### Betrug ########################################################################################
+#### BETRUG ########################################################################################
 #### 196.082 Domains ############################################################################### 
 
 https://blocklistproject.github.io/Lists/fraud.txt
 
 
 
-#### Pi-hole Standardliste #########################################################################
+#### PI-HOLE STANDARDLISTE #########################################################################
 #### 202.389 Domains ############################################################################### 
 
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 
 
 
-#### Weiterleitung #################################################################################
+#### WEITERLEITUNG #################################################################################
 #### 108.684 Domains ############################################################################### 
 
 https://blocklistproject.github.io/Lists/redirect.txt
