@@ -1,5 +1,5 @@
 # Pihole Blocklisten
-zuletzt aktualisiert: 25.07.2023 at 22:20
+zuletzt aktualisiert: 25.07.2023 at 23:23
 
 20.410.974 Domains (14.307.293 Unique) in 105 AdListen in 14 Kategorien.
 >*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*
