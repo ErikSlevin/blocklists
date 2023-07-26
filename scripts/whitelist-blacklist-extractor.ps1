@@ -156,7 +156,7 @@ if ($downloadedFile) {
         # Blocklist Readme.md ergänzen // Hier Kategorieweise!
         $outputREADME += "`n"
         $outputREADME += "## $($group.Name)`n"
-        $outputREADME += "> $($group.Group.Count) $(If ($group.Group.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit $($countDomains) Domains - [Copy & Paste Link](https://raw.githubusercontent.com/ErikSlevin/blocklists/blocklists)`n`n"
+        $outputREADME += "> $($group.Group.Count) $(If ($group.Group.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit $($countDomains) Domains - [Copy & Paste Link](/blocklists)`n`n"
         $outputREADME += "|Domains|Adresse|`n"
         $outputREADME += "|--:|:--|"
         
