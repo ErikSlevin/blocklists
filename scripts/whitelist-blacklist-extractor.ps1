@@ -114,10 +114,10 @@ if ($downloadedFile) {
     $uniqueDoamins = ((ConvertFrom-Json(Get-Content -Path $extractedPath\uniqueDomains.json -Raw)).domains_being_blocked).ToString("N0")
 
     # Sortiere das Array nach der Eigenschaft "comment" und dann nach der Anzahl absteigend
-    $sortedAdlists = $jsonAdlist | Sort-Object -Property comment, number -Descending
+    $sortedAdlists = $jsonAdlist | Where-Object { $_.comment -notlike "Local Mirror*" } | Sort-Object -Property comment, number -Descending
 
     # Gruppiere das sortierte Array nach der Eigenschaft "comment" und führe die erste Sortierung durch
-    $groupedAdlists = $sortedAdlists | Group-Object -Property comment | Sort-Object -Property Count -Descending
+    $groupedAdlists = $sortedAdlists | Where-Object { $_.comment -notlike "Local Mirror*" } | Group-Object -Property comment | Sort-Object -Property Count -Descending
 
     # Wieviele AdListen insgesamt
     $countAdlists = ($groupedAdlists | Measure-Object -Property Count -Sum).Sum
