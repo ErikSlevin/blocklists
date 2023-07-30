@@ -1,8 +1,8 @@
 ####################################################################################################
 #### BLOCKLISTS ####################################################################################
-#### Released: 31.07.2023 at 00:47
+#### Released: 31.07.2023 at 01:02
 ####
-#### 20.493.488 Domains (14.395.933 Unique) in 104 AdListen in 14 Kategorien.
+#### 20.493.453 Domains (14.395.933 Unique) in 104 AdListen in 14 Kategorien.
 ####
 #### GitHub: https://github.com/ErikSlevin
 #### Repository: https://github.com/ErikSlevin/blocklists
@@ -34,7 +34,7 @@ https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt
 
 
 #### DIVERSE #######################################################################################
-#### 3.785.496 Domains ############################################################################# 
+#### 3.785.461 Domains ############################################################################# 
 
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/multi.txt
