@@ -1,8 +1,8 @@
 ####################################################################################################
 #### BLOCKLISTS ####################################################################################
-#### Released: 31.07.2023 at 00:33
+#### Released: 31.07.2023 at 00:39
 ####
-#### 20.493.489 Domains (14.395.933 Unique) in 104 AdListen in 14 Kategorien.
+#### 20.493.488 Domains (14.395.933 Unique) in 104 AdListen in 14 Kategorien.
 ####
 #### GitHub: https://github.com/ErikSlevin
 #### Repository: https://github.com/ErikSlevin/blocklists
@@ -152,7 +152,7 @@ https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSqua
 
 
 #### FAKESHOPS UND ABOFALLEN #######################################################################
-#### 84.888 Domains ################################################################################ 
+#### 84.887 Domains ################################################################################ 
 
 https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/notserious
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt
