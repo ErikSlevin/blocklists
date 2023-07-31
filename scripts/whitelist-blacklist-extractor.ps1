@@ -153,13 +153,6 @@ if ($downloadedFile) {
         # Anzahl der Domains in der Liste
         $countDomains = ($sortedGroup | Measure-Object -Property number -Sum).Sum.ToString("N0")
 
-        # Blocklist Readme.md ergänzen // Hier Kategorieweise!
-        $outputREADME += "`n"
-        $outputREADME += "## $($group.Name)`n"
-        $outputREADME += "> $($group.Group.Count) $(If ($group.Group.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit $($countDomains) Domains - [Copy & Paste Link](/blocklists)`n`n"
-        $outputREADME += "|Domains|Adresse|`n"
-        $outputREADME += "|--:|:--|"
-        
         # Ueberschriften für die Blocklists (einheitliche Breite)
         $headline1 = "$($group.Name.Replace("&amp; ", "& ").ToUpper())"
         $paddingLength1 = 100 - $headline1.Length - 6
@@ -169,11 +162,19 @@ if ($downloadedFile) {
         $headline2 = "$($countDomains) Domains"
         $paddingLength2 = 100 - $headline2.Length - 6
         $padding2 = "#" * $paddingLength2
-        
 
         # Gruppenueberschrift fuer die Blocklists hinzufügen
         $outputBLOCKLISTS +=  "`n`n`n#### $headline1 $padding1`n"
         $outputBLOCKLISTS +=  "#### $headline2 $padding2 `n`n"
+
+        # Blocklist Readme.md ergänzen // Hier Kategorieweise!
+        $outputREADME += "`n"
+        $outputREADME += "## $($group.Name)`n"
+        $copyPasteLink = "[Copy & Paste Link](/blocklists#L$(($outputBLOCKLISTS | Measure-Object -Line).Lines+1)-L$(($outputBLOCKLISTS | Measure-Object -Line).Lines+$group.count))"
+        $outputREADME += "> $($group.Group.Count) $(If ($group.Group.Count -eq 1) { 'Liste' } Else { 'Listen' }) mit $($countDomains) Domains - $($copyPasteLink)`n`n"
+        $outputREADME += "|Domains|Adresse|`n"
+        $outputREADME += "|--:|:--|"
+        
         # Blocklist Readme.md ergänzen // Hier je URL!
         foreach ($adlist in $sortedGroup ) {
 
