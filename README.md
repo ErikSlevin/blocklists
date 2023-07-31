@@ -1,10 +1,10 @@
 # Pihole Blocklisten
-zuletzt aktualisiert: 31.07.2023 at 01:07
+zuletzt aktualisiert: 31.07.2023 at 02:16
 
 20.493.453 Domains (14.395.933 Unique) in 104 AdListen in 14 Kategorien.
 >*Eigene Sammlung, großteils von [RPiList](https://github.com/RPiList/specials/blob/master/Blocklisten.md) (YT: [SemperVideo](https://www.youtube.com/@SemperVideo)) - Vielen Dank*
 ## Malware
-> 16 Listen mit 2.434.320 Domains - [Copy & Paste Link](/blocklists#L17-L33)
+> 16 Listen mit 2.434.320 Domains - [Copy & Paste Link](/blocklists#L17-L32)
 
 |Domains|Adresse|
 |--:|:--|
@@ -25,7 +25,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |55|[https://www.technoy.de/lists/malware2.txt](https://www.technoy.de/lists/malware2.txt)|
 |38|[https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt](https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt)|
 ## Diverse
-> 15 Listen mit 3.785.461 Domains - [Copy & Paste Link](/blocklists#L39-L54)
+> 15 Listen mit 3.785.461 Domains - [Copy & Paste Link](/blocklists#L39-L53)
 
 |Domains|Adresse|
 |--:|:--|
@@ -45,7 +45,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |864|[https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh.txt](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/doh.txt)|
 |347|[https://v.firebog.net/hosts/static/w3kbl.txt](https://v.firebog.net/hosts/static/w3kbl.txt)|
 ## Einzelne Dienste
-> 13 Listen mit 23.500 Domains - [Copy & Paste Link](/blocklists#L60-L73)
+> 13 Listen mit 23.500 Domains - [Copy & Paste Link](/blocklists#L60-L72)
 
 |Domains|Adresse|
 |--:|:--|
@@ -63,7 +63,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |4|[https://raw.githubusercontent.com/bloodhunterd/pi-hole-blocklists/master/Twit...](https://raw.githubusercontent.com/bloodhunterd/pi-hole-blocklists/master/Twitch.txt)|
 |3|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Offi...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/MS-Office-Telemetry)|
 ## Jugendschutz
-> 12 Listen mit 6.893.852 Domains - [Copy & Paste Link](/blocklists#L79-L91)
+> 12 Listen mit 6.893.852 Domains - [Copy & Paste Link](/blocklists#L79-L90)
 
 |Domains|Adresse|
 |--:|:--|
@@ -80,7 +80,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock5](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock5)|
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/pornblock6)|
 ## Werbung
-> 12 Listen mit 1.695.442 Domains - [Copy & Paste Link](/blocklists#L97-L109)
+> 12 Listen mit 1.695.442 Domains - [Copy & Paste Link](/blocklists#L97-L108)
 
 |Domains|Adresse|
 |--:|:--|
@@ -97,7 +97,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |198|[https://www.technoy.de/lists/blocklist.txt](https://www.technoy.de/lists/blocklist.txt)|
 |9|[https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts)|
 ## Tracking und Telemetry
-> 10 Listen mit 1.188.164 Domains - [Copy & Paste Link](/blocklists#L115-L125)
+> 10 Listen mit 1.188.164 Domains - [Copy & Paste Link](/blocklists#L115-L124)
 
 |Domains|Adresse|
 |--:|:--|
@@ -112,7 +112,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |2.030|[https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts)|
 |34|[https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt)|
 ## Phishing
-> 8 Listen mit 1.671.210 Domains - [Copy & Paste Link](/blocklists#L131-L139)
+> 8 Listen mit 1.671.210 Domains - [Copy & Paste Link](/blocklists#L131-L138)
 
 |Domains|Adresse|
 |--:|:--|
@@ -125,7 +125,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |1.071|[https://raw.githubusercontent.com/hectorm/hmirror/master/data/eth-phishing-de...](https://raw.githubusercontent.com/hectorm/hmirror/master/data/eth-phishing-detect/list.txt)|
 |127|[https://raw.githubusercontent.com/namePlayer/dhl-scamlist/main/dns-blocklists...](https://raw.githubusercontent.com/namePlayer/dhl-scamlist/main/dns-blocklists/pihole-blacklist)|
 ## Domain-Squatting
-> 6 Listen mit 1.730.515 Domains - [Copy & Paste Link](/blocklists#L145-L151)
+> 6 Listen mit 1.730.515 Domains - [Copy & Paste Link](/blocklists#L145-L150)
 
 |Domains|Adresse|
 |--:|:--|
@@ -136,7 +136,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainS...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting4)|
 |0|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainS...](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting3)|
 ## Fakeshops und Abofallen
-> 4 Listen mit 84.887 Domains - [Copy & Paste Link](/blocklists#L157-L161)
+> 4 Listen mit 84.887 Domains - [Copy & Paste Link](/blocklists#L157-L160)
 
 |Domains|Adresse|
 |--:|:--|
@@ -145,7 +145,7 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |2.469|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Streaming](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Streaming)|
 |912|[https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/m...](https://raw.githubusercontent.com/Monstanner/DuckDuckGo-Fakeshops-Blocklist/main/Blockliste)|
 ## Crypto
-> 3 Listen mit 410.097 Domains - [Copy & Paste Link](/blocklists#L167-L170)
+> 3 Listen mit 410.097 Domains - [Copy & Paste Link](/blocklists#L167-L169)
 
 |Domains|Adresse|
 |--:|:--|
@@ -153,26 +153,26 @@ zuletzt aktualisiert: 31.07.2023 at 01:07
 |98.020|[https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/crypto](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/crypto)|
 |23.761|[https://blocklistproject.github.io/Lists/crypto.txt](https://blocklistproject.github.io/Lists/crypto.txt)|
 ## Ransomware
-> 2 Listen mit 3.808 Domains - [Copy & Paste Link](/blocklists#L176-L178)
+> 2 Listen mit 3.808 Domains - [Copy & Paste Link](/blocklists#L176-L177)
 
 |Domains|Adresse|
 |--:|:--|
 |1.904|[https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt](https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt)|
 |1.904|[https://blocklistproject.github.io/Lists/ransomware.txt](https://blocklistproject.github.io/Lists/ransomware.txt)|
 ## Betrug
-> 1 Liste mit 196.082 Domains - [Copy & Paste Link](/blocklists#L184-L185)
+> 1 Liste mit 196.082 Domains - [Copy & Paste Link](/blocklists#L184-L184)
 
 |Domains|Adresse|
 |--:|:--|
 |196.082|[https://blocklistproject.github.io/Lists/fraud.txt](https://blocklistproject.github.io/Lists/fraud.txt)|
 ## Pi-hole Standardliste
-> 1 Liste mit 203.872 Domains - [Copy & Paste Link](/blocklists#L191-L192)
+> 1 Liste mit 203.872 Domains - [Copy & Paste Link](/blocklists#L191-L191)
 
 |Domains|Adresse|
 |--:|:--|
 |203.872|[https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)|
 ## Weiterleitung
-> 1 Liste mit 108.684 Domains - [Copy & Paste Link](/blocklists#L198-L199)
+> 1 Liste mit 108.684 Domains - [Copy & Paste Link](/blocklists#L198-L198)
 
 |Domains|Adresse|
 |--:|:--|
